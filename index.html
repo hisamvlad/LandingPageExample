@@ -27,9 +27,28 @@
       
      
     }
-    button {
-      background-color: red darken-4;
-      font-size: 24px;
+    /* .clock {
+      background-color: white;
+      display: block;
+      color: red;
+      align-items: center;
+    } */
+
+    .countdown {
+      display: inline-block;
+      border: white;
+      margin: auto;
+    }
+    .countdown_reminder {
+      display: inline;
+      border: white;
+      margin: auto;
+      text-align: center;
+    }
+    .countdown_breakdown {
+      display: inline-block;
+      border: white;
+      margin: auto;
     }
     @media screen and (max-width: 670px){
       header{
@@ -155,7 +174,7 @@
   <div class="col s12 l5 offset-l1">
     <h5 class="center-align description">От проекта до прибыли <span class="red-text text-darken-4">ЗА 4 МЕСЯЦА</span></h5>
        
-        <h5 class="center-align description">Никакой воды, никаких секретов. <span class="red-text text-darken-4">ТОЛЬКО  ПРОВЕРЕННЫЕ МЕТОДЫ</span>  </h5>
+        <h5 class="center-align description">Никакой воды, никаких секретов, <span class="red-text text-darken-4">ТОЛЬКО  ПРОВЕРЕННЫЕ МЕТОДЫ</span>  </h5>
          
           <h3 class="center-align oldPrice"> 50 000 руб</h3>
       <h1 class="red-text text-darken-4 center-align">25 000 руб</h1>
@@ -223,7 +242,7 @@
           <h3 class="center-align">Мы сделаем из тебя </h3>
           <h1 class="red-text text-darken-4 center-align"> МИЛЛИОНЕРА</h1>
           <h5 class="center-align">Простая математика - средняя зарплата в России - 50 000 рублей. 
-            Средняя стоймость инфопродукта - 25 000 руб, всего 40 человек принесут заветный миллион. 
+            Средняя стоимость инфопродукта - 25 000 руб, всего 40 человек принесут заветный миллион. 
             А мы дадим тебе инструменты чтобы привлекать сотни и тысячи желающих!</h5>
         </div>
     </div>
@@ -290,8 +309,41 @@
     </div>
 </div>
 </div>
+
+<!-- <div class="row ">
+  <div class="col s12 l5 offset-l3 valign-wrapper center-align ">
+<div> <h4 class="countdown_reminder center-align ">У Вас Осталось</h4> </div>
+</div>
+</div> -->
+
 <div class="row ">
-  <div class="col s12 l5 offset-l1">
+<div id="div_countdown" class="clock">
+    <div class="col s12 l5 offset-l1 valign-wrapper center-align text-block">
+
+      <h3 id="days" class="countdown"><span class="countdown_breakdown">ДНЕЙ</span></h3> :
+      
+    <h3 id="hours" class="countdown"></h3>:
+    <h3 id="minutes" class="countdown"></h3>:
+    <h3 id="seconds" class="countdown"></h3>
+  </div>
+  
+</div>
+</div>
+
+<!-- <div class="row ">
+  <div class="col s12 l5 offset-l1 valign-wrapper center-align text-block">
+<div>
+   <h5  class="countdown_breakdown">ДНЕЙ</h5>
+  <h5  class="countdown_breakdown">ЧАСОВ</h5>
+  <h5  class="countdown_breakdown">МИНУТ</h5>
+  <h5  class="countdown_breakdown">СЕКУНД</h5> 
+</div>
+</div>
+</div> -->
+
+<div class="row ">
+  
+  <div class="col s12 l5 offset-l1 ">
     <a class="button waves-effect waves-light btn-large valign-wrapper center-align">СДЕЛАТЬ
       ПРЕДЗАКАЗ</a>
     </div>
@@ -303,23 +355,23 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5>About Me</h5>
+          <!-- <h5>About Me</h5>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue.</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
-        </div>
+        </div> -->
         <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Connect</h5>
+          <!-- <h5 class="white-text">Connect</h5>
           <ul>
             <li><a class="grey-text text-lighten-3" href="#">Facebook</a></li>
             <li><a class="grey-text text-lighten-3" href="#">Twitter</a></li>
             <li><a class="grey-text text-lighten-3" href="#">Linked In</a></li>
             <li><a class="grey-text text-lighten-3" href="#">Instagram</a></li>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </div>
     <div class="footer-copyright grey darken-4">
-      <div class="container center-align">&copy; 2018 Photo Ninja</div>
+      <div class="container center-align">&copy; 2019-2020 Национальная Онлайн Фитнес Академия для Тренеров </div>
     </div>
   </footer>
 
@@ -360,7 +412,7 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="scripts/auth.js"></script>
-  <script src="scripts/index.js"></script>
+  <script src="scripts/countdown.js"></script>
   
   <script>
     $(document).ready(function(){
