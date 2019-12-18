@@ -30,7 +30,7 @@
 
 
  // var DOMAIN = window.location.hostname;
- var DOMAIN = "https://masterclass-ofs2020.web.app/" ;
+ var DOMAIN = "https://nofat.me" ;
 
  // Replace with a SKU for your own product (created either in the Stripe Dashboard or with the API)
 
@@ -67,6 +67,11 @@
   
  });
 }
+
+
+  
+    
+
 
 // Register address with firstore
 var confirmAddress = document.getElementById('confirmAddress');
