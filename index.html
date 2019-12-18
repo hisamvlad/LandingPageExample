@@ -3,6 +3,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Favicon -->
+  <link rel='icon' href="favicon.png" type='image/png'/>
   <!-- font awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   <!--Import Google Icon Font-->
@@ -11,6 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <title>Мастеркласс. Создание онлайн фитнес школы.</title>
   <style>
+
     header{
       background: url(img/man/m01.png);
       background-size: cover;
@@ -27,13 +30,7 @@
       
      
     }
-    /* .clock {
-      background-color: white;
-      display: block;
-      color: red;
-      align-items: center;
-    } */
-
+  
     .countdown {
       display: inline-block;
       border: white;
@@ -50,9 +47,22 @@
       border: white;
       margin: auto;
     }
-    @media screen and (max-width: 670px){
+    @media screen and (min-width: 1200px) {
+      .nav-text {
+        font-size: 36px;
+      }
+    }
+    @media screen and (min-width: 670px){
       header{
         min-height: 500px;
+      }
+      .nav-text {
+        font-size: 24px;
+      }      
+    }
+    @media screen and (max-width: 400px) {
+      .nav-text {
+        font-size: 12px;
       }
     }
     .section{
@@ -124,6 +134,13 @@
     .oldPrice {
       text-decoration: line-through;
     }
+    .responsive-img {
+      position: relative;
+      display: inline-block;
+      margin-left: 23%;
+      
+    }
+   
   </style>
 </head>
 <body>
@@ -133,11 +150,11 @@
     <nav class="nav-wrapper transparent">
       <div class="container">
         <!-- <h1 class="red-text text-darken-4 center-align background-color white ">МАСТЕРКЛАСС</h1> -->
-        <a href="#" class="brand-logo">Национальная Онлайн Фитнес Академия Тренеров</a>
+        <a href="#" class="nav-text">Национальная Онлайн Фитнес Академия Тренеров</a>
         <a href="#" class="sidenav-trigger" data-target="mobile-menu">
           <i class="material-icons">menu</i>
         </a>
-        <ul class="right hide-on-med-and-down">
+        <!-- <ul class="right hide-on-med-and-down">
           <li><a href="#photos">Photo's</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -150,19 +167,26 @@
           <li><a href="#" class="tooltipped btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="Twitter">
             <i class="fab fa-twitter"></i>
           </a></li>
-        </ul>
-        <ul class="sidenav grey lighten-2" id="mobile-menu">
+        </ul> -->
+        <!-- <ul class="sidenav grey lighten-2" id="mobile-menu">
           <li><a href="#">Photo's</a></li>
           <li><a href="#">Services</a></li>
           <li><a href="#">Contact</a></li>
-        </ul>
+        </ul> -->
       </div>
     </nav>
+    <div class="modal" id="register">
+      <div class="modal-content"></div class="modal-content">
+    
+  </div>
+</div>
 
     <div class="row ">
+      <div>
+      <img class="responsive-img" src="Masterclass.png">
+    </div>
       <div class = "card transparent z-depth-5 valign-wrapper right-align text-block">
-       <div class="col s12 l5 offset-l1">
-        
+        <div class="col s12 l5 offset-l1">
          <h3 class="center-align">Создание и раскрутка</h3>
      <h2 class="red-text text-darken-4 center-align">ПРИБЫЛЬНОЙ</h2>
        <h3 class="center-align description"> онлайн фитнес школы</h3>
@@ -182,7 +206,7 @@
    </div>
 <div class="row ">
 <div class="col s12 l5 offset-l1">
- <a class="button waves-effect waves-light btn-large valign-wrapper center-align">СОЗДАТЬ
+ <a href="#register" class="button waves-effect waves-light btn-large valign-wrapper center-align modal-trigger">СОЗДАТЬ
   СВОЕ ДЕЛО</a>
  </div>
  </div>
@@ -202,7 +226,7 @@
         <h1 class="red-text text-darken-4 center-align">ПРЕИМУЩЕСТВО</h1>
         <h5 class="center-align description">Благодаря новейшему американскому
           и европейскому опыту, собранному в одном курсе, заточенном командой профессионалов 
-          специально под российский рынок, позволит оставить позади конкурентов с их устаревшими методами. </h5>
+          специально под российский рынок, ты сможешь оставить позади конкурентов с их устаревшими методами. </h5>
         </div>
      </div>
       </div>
@@ -223,7 +247,7 @@
         <h1 class="red-text text-darken-4 center-align">СЕЙЧАС</h1>
           <h5 class="center-align description">Фитнес курсы в России - одна из самых трендовых отраслей с огромным потенциалом.
             Сколько еще ты будешь ждать и убеждать себя, что не достоин, пока другие, менее талантливые, 
-            но более наглые зарабатывают продавая даже откровенный ширпотреб? </h5>
+            но более наглые, зарабатывают, продавая даже откровенный ширпотреб? </h5>
           </div>
     </div>
  </div>
@@ -242,8 +266,8 @@
           <h3 class="center-align">Мы сделаем из тебя </h3>
           <h1 class="red-text text-darken-4 center-align"> МИЛЛИОНЕРА</h1>
           <h5 class="center-align">Простая математика - средняя зарплата в России - 50 000 рублей. 
-            Средняя стоимость инфопродукта - 25 000 руб, всего 40 человек принесут заветный миллион. 
-            А мы дадим тебе инструменты чтобы привлекать сотни и тысячи желающих!</h5>
+            Средняя стоимость инфопродукта - 25 000 руб. Всего 40 человек принесут заветный миллион. 
+            А мы дадим тебе инструменты, чтобы привлекать сотни и тысячи желающих!</h5>
         </div>
     </div>
  </div>
@@ -261,7 +285,7 @@
        <div class="col s12 l5 offset-l1">
         <h3 class="center-align">Почему</h3>
           <h1 class="red-text text-darken-4 center-align">ТЫ СОМНЕВАЕШЬСЯ?</h1>
-          <h5 class="center-align">Думаешь, что должен выглядеть как с обложки глянца? Это миф, 
+          <h5 class="center-align">Думаешь, что должен выглядеть, как с обложки глянца? Это миф, 
             подкрашенный фотошопом. Мы научим тебя расти вместе со своей аудиторией, строить свой бренд, 
             умножать минус на минус, чтобы получить огромный плюс! </h5>
       </div>
@@ -330,25 +354,16 @@
 </div>
 </div>
 
-<!-- <div class="row ">
-  <div class="col s12 l5 offset-l1 valign-wrapper center-align text-block">
-<div>
-   <h5  class="countdown_breakdown">ДНЕЙ</h5>
-  <h5  class="countdown_breakdown">ЧАСОВ</h5>
-  <h5  class="countdown_breakdown">МИНУТ</h5>
-  <h5  class="countdown_breakdown">СЕКУНД</h5> 
-</div>
-</div>
-</div> -->
-
 <div class="row ">
   
   <div class="col s12 l5 offset-l1 ">
-    <a class="button waves-effect waves-light btn-large valign-wrapper center-align">СДЕЛАТЬ
+    <a class="button waves-effect waves-light btn-large valign-wrapper center-align "  >СДЕЛАТЬ
       ПРЕДЗАКАЗ</a>
     </div>
     </div>
 </div>
+
+ 
 
   <!-- footer -->
   <footer class="page-footer grey darken-3">
@@ -371,7 +386,7 @@
       </div>
     </div>
     <div class="footer-copyright grey darken-4">
-      <div class="container center-align">&copy; 2019-2020 Национальная Онлайн Фитнес Академия для Тренеров </div>
+      <div class="container center-align">&copy; 2019-2020 Национальная Онлайн Фитнес Академия Тренеров </div>
     </div>
   </footer>
 
@@ -422,6 +437,9 @@
       $('.tabs').tabs();
       $('.datepicker').datepicker({
         disableWeekends: true,
+      });
+      $(document).ready(function() {
+        $('.modal').modal();
       });
       $('.tooltipped').tooltip();
       $('.scrollspy').scrollSpy();

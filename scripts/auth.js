@@ -16,25 +16,7 @@
     
     
 
-    // function paypalPaymentChecked() {
-    //     if( payWithPaypal.checked) {
-    //         Paypal.style.display = "block";
-    //         card.style.display = "none";
-    //             } else {
-    //                 Paypal.style.display = "none";
-    //                 card.style.display = "block";
-    //             }
-    //         }
-
-    // function cardPaymentChecked() {
-    //      if( payWithCard.checked) {
-    //         card.style.display = "block";
-    //         Paypal.style.display = "none"; 
-    //     } else {
-    //         card.style.display = "none";
-    //         Paypal.style.display = "block";
-    //     }
-    // }
+//Modal setup
 
    
     
