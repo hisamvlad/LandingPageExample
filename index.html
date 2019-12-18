@@ -27,8 +27,6 @@
       font-size: 28px;
       height: 80px;
       display: grid;
-      
-     
     }
   
     .countdown {
@@ -140,7 +138,25 @@
       margin-left: 23%;
       
     }
-   
+   .modal {
+     background-color: black;
+   }
+   .cardImg {
+     align-items: center;
+     display:block;
+     margin: auto;
+   }
+   .modal-content {
+     margin: auto;
+   }
+   .modal-button{
+      background-color:#b71c1c;
+      position: inherit;
+      font-size: 28px;
+      height: 80px;
+      display: block;
+      margin-left: 40%;
+    }
   </style>
 </head>
 <body>
@@ -176,7 +192,20 @@
       </div>
     </nav>
     <div class="modal" id="register">
-      <div class="modal-content"></div class="modal-content">
+      
+      <div class="modal-content">
+        <form id="OrderForm">
+          
+          <h2 class="red-text text-darken-4 center-align">Ты всего в шаге от нового начала</h2>
+              </div class=" center center-align  " id="card">
+              <h5 class=" text-align: center ">Оплатить картой</h5>
+            <img src="img/cards.png" class="cardImg center-align ">
+          <button id="order-button" class="modal-button waves-effect waves-light btn-small valign-wrapper center-align cardOrder "> Заказать курс </button>
+          <div id="error-message"></div>
+          </div>
+          </div>
+                </form>
+      </div>
     
   </div>
 </div>
@@ -232,7 +261,7 @@
       </div>
     <div class="row ">
     <div class="col s12 l4 offset-l6 ">
-      <a class="button waves-effect waves-light btn-large valign-wrapper center-align">ПОЛУЧИТЬ
+      <a href="#register" class="button waves-effect waves-light btn-large valign-wrapper center-align modal-trigger">ПОЛУЧИТЬ
         ПРЕИМУЩЕСТВО</a>
       </div>
       </div>
@@ -253,7 +282,7 @@
  </div>
  <div class="row ">
   <div class="col s12 l5 offset-l1">
-    <a class="button waves-effect waves-light btn-large valign-wrapper center-align">НАЧАТЬ СЕЙЧАС</a>
+    <a href="#register" class="button waves-effect waves-light btn-large valign-wrapper center-align modal-trigger">НАЧАТЬ СЕЙЧАС</a>
     </div>
     </div>
   </div>
@@ -273,7 +302,7 @@
  </div>
  <div class="row ">
   <div class="col s12 l5 offset-l6 ">
-    <a class="button waves-effect waves-light btn-large valign-wrapper center-align">СДЕЛАТЬ
+    <a href="#register" class="button waves-effect waves-light btn-large valign-wrapper center-align modal-trigger">СДЕЛАТЬ
       МИЛЛИОН</a>
     </div>
     </div>
@@ -293,7 +322,7 @@
 </div>
 <div class="row ">
   <div class="col s12 l5 offset-l1">
-    <a class="button waves-effect waves-light btn-large valign-wrapper center-align">Я В ДЕЛЕ!</a>
+    <a href="#register" class="button waves-effect waves-light btn-large valign-wrapper center-align modal-trigger">Я В ДЕЛЕ!</a>
     </div>
     </div>
 </div>
@@ -314,7 +343,7 @@
 </div>
 <div class="row ">
   <div class="col s12 l5 offset-l6 ">
-    <a class="button waves-effect waves-light btn-large valign-wrapper center-align">ИЗМЕНИТЬ СВОЮ ЖИЗНЬ</a>
+    <a href="#register" class="button waves-effect waves-light btn-large valign-wrapper center-align modal-trigger">ИЗМЕНИТЬ СВОЮ ЖИЗНЬ</a>
     </div>
     </div>
 </div>
@@ -334,11 +363,6 @@
 </div>
 </div>
 
-<!-- <div class="row ">
-  <div class="col s12 l5 offset-l3 valign-wrapper center-align ">
-<div> <h4 class="countdown_reminder center-align ">У Вас Осталось</h4> </div>
-</div>
-</div> -->
 
 <div class="row ">
 <div id="div_countdown" class="clock">
@@ -357,7 +381,7 @@
 <div class="row ">
   
   <div class="col s12 l5 offset-l1 ">
-    <a class="button waves-effect waves-light btn-large valign-wrapper center-align "  >СДЕЛАТЬ
+    <a href="#register" class="button waves-effect waves-light btn-large valign-wrapper center-align modal-trigger">СДЕЛАТЬ
       ПРЕДЗАКАЗ</a>
     </div>
     </div>
@@ -390,13 +414,21 @@
     </div>
   </footer>
 
-<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+<!-- <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-functions.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-storage.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-analytics.js"></script> -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.6.0/firebase-app.js"></script>
 
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/7.6.0/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
 
 <script>
   // Your web app's Firebase configuration

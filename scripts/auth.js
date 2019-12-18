@@ -1,10 +1,4 @@
-    var payWithPaypal= document.getElementById('payWithPaypal'); 
-    // var Paypal11= document.getElementsByClassName('paypal11')[0]; 
-    // var Paypal15= document.getElementsByClassName('paypal15')[0];
 
-     var Paypal11 = document.querySelector('#paypal11');
-     var Paypal15 = document.querySelector('#paypal15');
-    // var card = document.querySelector('#card');
 
     var payWithCard= document.getElementById('payWithCard'); 
      var card = document.getElementsByClassName('card')[0]; 
@@ -12,17 +6,7 @@
     var paperbackChecked = document.getElementById('paperback');
     var PDFbackChecked = document.getElementById('PDF');
     var EPUBbackChecked = document.getElementById('EPUB');
-
-    
-    
-
-//Modal setup
-
-   
-    
-    
-         
-    
+ 
     function paperback() {
   if (document.getElementById('paperback').checked = true)
   {
@@ -36,33 +20,7 @@
   }
  };
 
- function PDFChecked() {
- if (document.getElementById('PDF').checked = true)
-  {
-   // do whatever you want with the checked radio
-   alert("Вы выбрали PDF");
-   SKU_ID = "sku_FzlAFbaQ6Jd0vH";
-   card.style.display="block";
-   paypal11.style.display = "block";
-   paypal15.style.display = "none";
-   
-  }
- };
 
- function EPUBChecked() {
- if (document.getElementById('EPUB').checked = true)
-  {
-   // do whatever you want with the checked radio
-   alert("Вы выбрали EPUB" );
-   SKU_ID = "sku_FzlAHRZMkdumdL";
-   card.style.display="block";
-     paypal11.style.display = "block";
-     paypal15.style.display = "none";
- 
-   
-  }
- 
- };
  
 //*****Stripe******/
 
@@ -72,9 +30,7 @@
 
 
  // var DOMAIN = window.location.hostname;
- var DOMAIN = "https://playrichclub.com" ;
-
-
+ var DOMAIN = "https://nofat.me" ;
 
  // Replace with a SKU for your own product (created either in the Stripe Dashboard or with the API)
 
@@ -101,105 +57,21 @@
      .redirectToCheckout({
        items: [{ sku: SKU_ID, quantity: 1 }],
        successUrl:
-         DOMAIN + "/Paperback.html?session_id={CHECKOUT_SESSION_ID}",
+         DOMAIN + "/Success.html?session_id={CHECKOUT_SESSION_ID}",
         
-       cancelUrl: DOMAIN + "/canceled.html"
+       cancelUrl: DOMAIN 
      })
      .then(handleResult);
-    } else if (SKU_ID = "sku_FzlAFbaQ6Jd0vH") {
-        stripe
-        .redirectToCheckout({
-          items: [{ sku: SKU_ID, quantity: 1 }],
-          successUrl:
-            DOMAIN + "/PDF.html?session_id={CHECKOUT_SESSION_ID}",
-          cancelUrl: DOMAIN + "/canceled.html"
-        })
-        .then(handleResult);
-    } else if (SKU_ID = "sku_FzlAHRZMkdumdL") {
-        stripe
-        .redirectToCheckout({
-          items: [{ sku: SKU_ID, quantity: 1 }],
-          successUrl:
-            DOMAIN + "/EPUB.html?session_id={CHECKOUT_SESSION_ID}",
-          cancelUrl: DOMAIN + "/canceled.html"
-        })
-        .then(handleResult);
+    
     }
   
  });
 }
 
-// After payment 
 
-var pathReferencePDF = storage.ref('PDF/European Blues. Vladimir Bern.pdf');
-var pathReferenceEPUB = storage.ref('EPUB/European Blues by Vladimir Bern.epub');
+  
+    
 
-// Download PDF
-var PDFDownload = document.getElementById('EPUBDownload');
-
-if(PDFDownload) {
-PDFDownload.addEventListener('click', (e) => {
-  pathReferencePDF.getDownloadURL().then(function(url) {
-  
-  }).catch(function(error) {
-  
-    // A full list of error codes is available at
-    // https://firebase.google.com/docs/storage/web/handle-errors
-    switch (error.code) {
-      case 'storage/object-not-found':
-        // File doesn't exist
-        break;
-  
-      case 'storage/unauthorized':
-        // User doesn't have permission to access the object
-        break;
-  
-      case 'storage/canceled':
-        // User canceled the upload
-        break;
-     
-      case 'storage/unknown':
-        // Unknown error occurred, inspect the server response
-        break;
-    }
-  });
-}).then(() => {
- PDFDownload.style.display ='none';
-}); 
-}
-// Download EPUB
-var EPUBDownload = document.getElementById('EPUBDownload');
-
-if(EPUBDownload) {
-EPUBDownload.addEventListener('click', (e) => {
-  pathReferenceEPUB.getDownloadURL().then(function(url) {
-  
-  }).catch(function(error) {
-  
-    // A full list of error codes is available at
-    // https://firebase.google.com/docs/storage/web/handle-errors
-    switch (error.code) {
-      case 'storage/object-not-found':
-        // File doesn't exist
-        break;
-  
-      case 'storage/unauthorized':
-        // User doesn't have permission to access the object
-        break;
-  
-      case 'storage/canceled':
-        // User canceled the upload
-        break;
-     
-      case 'storage/unknown':
-        // Unknown error occurred, inspect the server response
-        break;
-    }
-  });
-}).then(() => {
- EPUBDownload.style.display ='none';
-}); 
-}
 
 // Register address with firstore
 var confirmAddress = document.getElementById('confirmAddress');
