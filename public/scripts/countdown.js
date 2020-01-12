@@ -2,7 +2,7 @@
 
 
 // Set the date we're counting down to
-var countDownDate = new Date("Jan 1, 2020 00:00:00").getTime();
+var countDownDate = new Date("Mar 1, 2020 00:00:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -29,7 +29,7 @@ var x = setInterval(function() {
   // If the count down is finished, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("days").innerHTML = "С Новым Годом. Предзаказ доступен по новой цене!";
+    document.getElementById("days").innerHTML = " ";
   }
 }, 1000);
 

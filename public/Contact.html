@@ -1,0 +1,593 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Favicon -->
+  <link rel='icon' href="favicon.png" type='image/png'/>
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <script src="https://js.stripe.com/v3/"></script>
+  <title>Мастеркласс. Создание онлайн фитнес школы.</title>
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    header{
+      background: url(img/man/m01.png);
+      background-size: cover;
+      background-position: center;
+      min-height: 1000px;
+      
+    }
+    .button{
+      background-color:#b71c1c;
+      position: inherit;
+      font-size: 28px;
+      height: auto;
+      display: grid;
+      margin-left:10%;
+      margin-top: 0%;
+      margin-bottom: 20%;
+      line-height: 80px;
+    }
+  
+    .countdown {
+      display: inline-block;
+      border: white;
+      margin: auto;
+    }
+    .countdown_reminder {
+      display: inline;
+      border: white;
+      margin: auto;
+      text-align: center;
+    }
+    .countdown_breakdown {
+      display: inline-block;
+      border: white;
+      margin: auto;
+    }
+
+    html {
+      font-size: 12px;
+    }
+    h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 1rem;
+}
+
+    @media screen and (min-width: 500px){
+  html{
+    font-size: 14px;
+  }
+  h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 2rem;
+}
+}
+@media screen and (min-width: 570px){
+  html{
+    font-size: 15px;
+  }
+  h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 2rem;
+}
+}
+@media screen and (min-width: 620px){
+  html{
+    font-size: 16px;
+  }
+  h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 2rem;
+}
+}
+@media screen and (min-width: 680px){
+  html{
+    font-size: 17px;
+  }
+  h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 2rem;
+}
+}
+@media screen and (min-width: 720px){
+  html{
+    font-size: 18px;
+  }
+  h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 2rem;
+}
+}
+@media screen and (min-width: 800px){
+  html{
+    font-size: 19px;
+  }
+  h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 2rem;
+}
+}
+@media screen and (min-width: 860px){
+  html{
+    font-size: 16px;
+  }
+  h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 2rem;
+}
+}
+@media screen and (min-width: 920px){
+  html{
+    font-size: 18px;
+  }
+  h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 2rem;
+}
+}
+@media screen and (min-width: 1000px){
+  html{
+    font-size: 20px;
+  }
+  h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 1.5rem;
+}
+
+}
+    .section{
+      padding-top: 4vw;
+      padding-bottom: 4vw;
+    }
+    .tabs .indicator{
+      background-color: #1a237e;
+    }
+    .tabs .tab a:focus, .tabs .tab a:focus.active{
+      background: transparent;
+    }
+    body {
+        background: black;
+        color: white;
+      }
+    .text-block {
+      padding-top: 4vw;
+    }  
+    
+    .description {
+      display:block;
+    }
+
+    .image-card {
+        background-repeat: no-repeat;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+      
+    }
+    .oldPrice {
+      text-decoration: line-through;
+    }
+    .responsive-img {
+      position: relative;
+      display: inline-block;
+      margin-left: 23%;
+      
+    }
+   .modal {
+     background-color: black;
+   }
+   .cardImg {
+     align-items: center;
+     display:block;
+     margin: auto;
+   }
+   .modal-content {
+     margin: auto;
+   }
+   .modal-button{
+      background-color:#b71c1c;
+      position: inherit;
+      font-size: 28px;
+      height: 80px;
+      display: block;
+      margin-left: 40%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- navbar -->
+  <header>
+    <nav class="nav-wrapper transparent">
+      <div class="container">
+        <!-- <h1 class="red-text text-darken-4 center-align background-color white ">МАСТЕРКЛАСС</h1> -->
+        <a href="#" class="nav-text">Национальная Онлайн Фитнес Академия Тренеров</a>
+        <a href="#" class="sidenav-trigger" data-target="mobile-menu">
+          <i class="material-icons">menu</i>
+        </a>
+        <!-- <ul class="right hide-on-med-and-down">
+          <li><a href="#photos">Photo's</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#" class="tooltipped btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="Instagram"> 
+            <i class="fab fa-instagram"></i>
+          </a></li>
+          <li><a href="#" class="tooltipped btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="Facebook">
+            <i class="fab fa-facebook"></i>
+          </a></li>
+          <li><a href="#" class="tooltipped btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a></li>
+        </ul> -->
+        <!-- <ul class="sidenav grey lighten-2" id="mobile-menu">
+          <li><a href="#">Photo's</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul> -->
+      </div>
+    </nav>
+    <!-- <div class="modal" id="register">
+      
+      <div class="modal-content">
+        <form id="OrderForm">
+          
+          <h2 class="red-text text-darken-4 center-align">Ты всего в шаге от нового начала</h2>
+              </div class=" center center-align  " id="card">
+              <h5 class=" text-align: center ">Оплатить картой</h5>
+            <img src="img/cards.png" class="cardImg center-align ">
+          <button id="order-button" class="modal-button waves-effect waves-light btn-small valign-wrapper center-align cardOrder "> Заказать курс </button>
+          <div id="error-message"></div>
+          </form>
+        </div>
+          </div> -->
+                
+      </div>
+    
+  </div>
+</div>
+
+    <div class="row ">
+      <div>
+      <img class="responsive-img" src="Masterclass.png">
+    </div>
+      <div class = "card transparent z-depth-5  right-align text-block">
+        <div class="col s12  l3 offset-l2">
+         <h2 class="center-align">Создание и раскрутка</h2>
+     <h2 class="red-text text-darken-4 center-align">ПРИБЫЛЬНОЙ</h2>
+       <h3 class="center-align description"> онлайн фитнес школы</h3>
+      
+       </div>
+ </div>
+</div>
+<div class="row ">
+  <div class="col s12 l5 offset-l1 ">
+    <h5 class="center-align description">От проекта до прибыли <span class="red-text text-darken-4">ЗА 4 МЕСЯЦА</span></h5>
+       
+        <h5 class="center-align description">Никакой воды, никаких секретов, <span class="red-text text-darken-4">ТОЛЬКО  ПРОВЕРЕННЫЕ МЕТОДЫ</span>  </h5>
+        <h5 class="center-align description">Старт   <span class="red-text text-darken-4">31.01.2020</span>  </h5>
+        <h3 class="center-align oldPrice"> 50 000 руб</h3>
+      <h1 class="red-text text-darken-4 center-align">25 000 руб</h1>
+      <a  class=" order-button button waves-effect waves-light btn-large valign-wrapper center-align modal-trigger">СОЗДАТЬ
+        СВОЕ ДЕЛО</a>
+   </div>
+   </div>
+
+</div>
+
+  </header>
+<section class="image-card" style="background-image: url('img/man/m02.png');  background-size: cover;">
+  
+      <div class="row ">
+         <div class = "card transparent z-depth-5 valign-wrapper right-align text-block"></div>
+        <div class="col s12  l5  offset-l6 ">
+        <h2 class="center-align">Получи конкурентное</h2>
+        <h1 class="red-text text-darken-4 center-align">ПРЕИМУЩЕСТВО</h1>
+        <h5 class="center-align description">Благодаря новейшему американскому
+          и европейскому опыту, собранному в одном курсе, заточенном командой профессионалов 
+          специально под российский рынок, ты сможешь оставить позади конкурентов с их устаревшими методами. </h5>  
+          <a  class="order-button button  waves-effect waves-light btn-large valign-wrapper center-align modal-trigger">ПОЛУЧИТЬ
+            ПРЕИМУЩЕСТВО</a>
+         </div>
+      </div>
+     
+    </section>
+ 
+    <section class="image-card" style="background-image: url('img/man/m03.png')">
+  
+       <div class="row ">
+         
+          <div class="col s12  l5 offset-l1">
+            <h2 class="center-align">Лучшее время начать</h2>
+        <h1 class="red-text text-darken-4 center-align">СЕЙЧАС</h1>
+          <h5 class="center-align description">Фитнес курсы в России - одна из самых трендовых отраслей с огромным потенциалом.
+            Сколько еще ты будешь ждать и убеждать себя, что не достоин, пока другие, менее талантливые, 
+            но более наглые, зарабатывают, продавая даже откровенный ширпотреб? </h5>
+            <a  class="order-button button  waves-effect waves-light btn-large center-align modal-trigger">НАЧАТЬ СЕЙЧАС</a>
+          </div>
+    </div>
+ 
+   </div>
+  </section>
+
+  <section class="image-card" style="background-image: url('img/man/m04.png')">
+ 
+       <div class="row ">
+        <div class = "card transparent z-depth-5  right-align text-block">
+        <div class="col s12  l5 offset-l6">
+         
+       
+          <h3 class="center-align">Мы сделаем из тебя </h3>
+          <h1 class="red-text text-darken-4 center-align"> МИЛЛИОНЕРА</h1>
+          <h5 class="center-align">Простая математика - средняя зарплата в России - 50 000 рублей. 
+            Средняя стоимость инфопродукта - 25 000 руб. Всего 40 человек принесут заветный миллион. 
+            А мы дадим тебе инструменты, чтобы привлекать сотни и тысячи желающих!</h5>
+            <a  class="order-button button waves-effect waves-light btn-large  center-align modal-trigger">СДЕЛАТЬ
+              МИЛЛИОН</a>
+        </div>
+    </div>
+ </div>
+  
+  </section>
+
+  <section class="image-card" style="background-image: url('img/man/m05.png')">
+  
+    <div class="row ">
+      <div class = "card transparent z-depth-5 valign-wrapper right-align text-block">
+       <div class="col s12  l5 offset-l1">
+        <h2 class="center-align">Почему</h2>
+          <h1 class="red-text text-darken-4 center-align">ТЫ СОМНЕВАЕШЬСЯ?</h1>
+          <h5 class="center-align">Думаешь, что должен выглядеть, как с обложки глянца? Это миф, 
+            подкрашенный фотошопом. Мы научим тебя расти вместе со своей аудиторией, строить свой бренд, 
+            умножать минус на минус, чтобы получить огромный плюс! </h5>
+            <a  class="order-button button waves-effect waves-light btn-large valign-wrapper center-align modal-trigger">Я В ДЕЛЕ!</a>
+      </div>
+ </div>
+</div>
+>
+</section>
+
+
+<section class="image-card" style="background-image: url('img/man/m06.png'); background-size: cover"> 
+  <div class="row ">
+       <div class = "card transparent z-depth-5 valign-wrapper right-align text-block">
+      <div class="col s12 l5 offset-l6">
+        <h2 class="center-align">Самый горячий курс 2020 </h2>
+        <h1 class="red-text text-darken-4 center-align">ПРЕДЗАКАЗ</h1>
+        <h5 class="center-align">Для тех, кто ценит свое время и в Новом Году готов РЕАЛЬНО изменить свою жизнь.
+          Предзаказ ограничен до последнего удара Курантов 31 Декабря. 
+          Сколько ты еще готов готовиться жить? </h5>
+          <a  class="row order-button button  waves-effect waves-light btn-large valign-wrapper center-align modal-trigger">ИЗМЕНИТЬ СВОЮ ЖИЗНЬ</a>
+      </div>
+  </div>
+</div>
+
+</section> 
+
+<section class="image-card" style="background-image: url('img/man/m07.png')"> 
+  <div class="row ">
+    <div class = "card transparent z-depth-5 valign-wrapper right-align text-block">
+     <div class="col s12 l5 offset-l1">
+      <h5 class="center-align description">Старт   <span class="red-text text-darken-4">31.01.2020</span>  </h5>
+      <h1 class="red-text text-darken-4 center-align">ВНИМАНИЕ!</h1>
+      <h2 class="center-align">За Предзаказ до 1 Января</h2>
+      <h2 class="center-align oldPrice"> 50 000 руб</h2>
+      <h1 class="red-text text-darken-4 center-align">25 000 руб</h1>
+</div>
+</div>
+</section>
+
+<div class="row ">
+<div id="div_countdown" class="clock">
+    <div class="col s12 l5 offset-l1 valign-wrapper center-align text-block">
+
+      <h3 id="days" class="countdown"><span class="countdown_breakdown">ДНЕЙ</span></h3> :
+      
+    <h3 id="hours" class="countdown"></h3>:
+    <h3 id="minutes" class="countdown"></h3>:
+    <h3 id="seconds" class="countdown"></h3>
+  </div>
+  
+</div>
+</div>
+
+<div class="row ">
+  
+  <div class="col s12 l5 offset-l1 ">
+    <a  class="order-button button  waves-effect waves-light btn-large valign-wrapper center-align modal-trigger">СДЕЛАТЬ
+      ПРЕДЗАКАЗ</a>
+    </div>
+    </div>
+</div>
+
+ 
+
+  <!-- footer -->
+  <footer class="page-footer grey darken-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <!-- <h5>About Me</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+        </div> -->
+        <div class="col l4 offset-l2 s12">
+          <!-- <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#">Facebook</a></li>
+            <li><a class="grey-text text-lighten-3" href="#">Twitter</a></li>
+            <li><a class="grey-text text-lighten-3" href="#">Linked In</a></li>
+            <li><a class="grey-text text-lighten-3" href="#">Instagram</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright grey darken-4">
+      <div class="container center-align">&copy; 2019-2020 Национальная Онлайн Фитнес Академия Тренеров </div>
+    </div>
+  </footer>
+
+<!-- <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-functions.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-analytics.js"></script> -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.6.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/7.6.0/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+  apiKey: "AIzaSyD-O0Kozs90fh7driEiRC8Nljf_u_Uromg",
+  authDomain: "masterclass-ofs2020.firebaseapp.com",
+  databaseURL: "https://masterclass-ofs2020.firebaseio.com",
+  projectId: "masterclass-ofs2020",
+  storageBucket: "masterclass-ofs2020.appspot.com",
+  messagingSenderId: "248470928480",
+  appId: "1:248470928480:web:5447685b43275946da1705",
+  measurementId: "G-568DWPTCT5"
+};
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  
+  // make references to firebase objects
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  const storage = firebase.storage();
+  
+
+  
+</script>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="scripts/auth.js"></script>
+  <script src="scripts/countdown.js"></script>
+  
+  <script>
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+      // $('.materialboxed').materialbox();
+      $('.parallax').parallax();
+      $('.tabs').tabs();
+      $('.datepicker').datepicker({
+        disableWeekends: true,
+      });
+      $(document).ready(function() {
+        $('.modal').modal();
+      });
+      $('.tooltipped').tooltip();
+      $('.scrollspy').scrollSpy();
+      $(document).ready(function() {
+    $('.carousel').carousel();
+   // function for auto play carousel-slider
+   setInterval(function() {
+     $('.carousel').carousel('next')
+   }, 10000);
+   $(document).ready(function(){
+    $('.slider').slider();
+  });
+  });
+    });
+  </script>
+</body>
+</html>

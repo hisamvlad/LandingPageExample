@@ -1,0 +1,530 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Favicon -->
+  <link rel='icon' href="favicon.png" type='image/png'/>
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <script src="https://js.stripe.com/v3/"></script>
+  <title>Национальная Онлайн Академия для Тренеров</title>
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    header{
+      background: url(img/man/man08.png);
+      background-size: cover;
+      background-position: center;
+      min-height: 1000px;
+      
+    }
+    .button{
+      background-color:#b71c1c;
+      position: inherit;
+      font-size: 28px;
+      height: auto;
+      display: grid;
+      margin-left:10%;
+      margin-top: 0%;
+      margin-bottom: 20%;
+      line-height: 80px;
+    }
+  
+    .countdown {
+      display: inline-block;
+      border: white;
+      margin: auto;
+    }
+    .countdown_reminder {
+      display: inline;
+      border: white;
+      margin: auto;
+      text-align: center;
+    }
+    .countdown_breakdown {
+      display: inline-block;
+      border: white;
+      margin: auto;
+    }
+
+    html {
+      font-size: 12px;
+    }
+    h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 1rem;
+}
+
+    @media screen and (min-width: 500px){
+  html{
+    font-size: 14px;
+  }
+  h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 2rem;
+}
+}
+@media screen and (min-width: 570px){
+  html{
+    font-size: 15px;
+  }
+  h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 2rem;
+}
+}
+@media screen and (min-width: 620px){
+  html{
+    font-size: 16px;
+  }
+  h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 2rem;
+}
+}
+@media screen and (min-width: 680px){
+  html{
+    font-size: 17px;
+  }
+  h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 2rem;
+}
+}
+@media screen and (min-width: 720px){
+  html{
+    font-size: 18px;
+  }
+  h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 2rem;
+}
+}
+@media screen and (min-width: 800px){
+  html{
+    font-size: 19px;
+  }
+  h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 2rem;
+}
+}
+@media screen and (min-width: 860px){
+  html{
+    font-size: 16px;
+  }
+  h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 2rem;
+}
+}
+@media screen and (min-width: 920px){
+  html{
+    font-size: 18px;
+  }
+  h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 2rem;
+}
+}
+@media screen and (min-width: 1000px){
+  html{
+    font-size: 20px;
+  }
+  h1 {
+	font-size: 3rem;
+}
+  h2 {
+	font-size: 2rem;
+}
+  p, li {
+	font-size: 1rem;
+}
+h5 {
+  font-size: 1.5rem;
+}
+
+}
+    .section{
+      padding-top: 4vw;
+      padding-bottom: 4vw;
+    }
+    .tabs .indicator{
+      background-color: #1a237e;
+    }
+    .tabs .tab a:focus, .tabs .tab a:focus.active{
+      background: transparent;
+    }
+    body {
+        background: black;
+        color: white;
+      }
+    .text-block {
+      padding-top: 4vw;
+    }  
+    
+    .description {
+      display:block;
+    }
+
+    .text-card {
+        background-repeat: no-repeat;
+        height: auto;
+        background-size: cover;
+        background-position: center;
+      
+    }
+    .image-card {
+        background-repeat: no-repeat;
+        height: 80vh;
+        background-size: cover;
+        background-position: center;
+      
+    }
+    .oldPrice {
+      text-decoration: line-through;
+    }
+    .responsive-img {
+      position: relative;
+      display: inline-block;
+      margin-left: 23%;
+      
+    }
+   .modal {
+     background-color: black;
+   }
+   .cardImg {
+     align-items: center;
+     display:block;
+     margin: auto;
+   }
+   .modal-content {
+     margin: auto;
+   }
+   .modal-button{
+      background-color:#b71c1c;
+      position: inherit;
+      font-size: 28px;
+      height: 80px;
+      display: block;
+      margin-left: 40%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- navbar -->
+  <header>
+    <nav class="nav-wrapper transparent">
+      <div class="container">
+        <!-- <h1 class="red-text text-darken-4 center-align background-color white ">МАСТЕРКЛАСС</h1> -->
+        <a href="index.html" class="nav-text"></a>
+        <a href="index.html" class="sidenav-trigger" data-target="mobile-menu">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul class="right hide-on-med-and-down"> 
+          <li><a href="index.html">Главная</a></li>
+          <!-- <li><a href="#services">Services</a></li> -->
+          <!-- <li><a href="Contact.html">Контакты</a></li> -->
+          <li><a href="https://www.instagram.com/no_fat_me/" class="tooltipped btn-floating btn-small transparent darken-4" data-position="bottom" data-tooltip="Instagram"> 
+            <i class="fab fa-instagram"></i>
+          </a></li>
+          <!-- <li><a href="#" class="tooltipped btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="Facebook">
+            <i class="fab fa-facebook"></i> -->
+          </a></li>
+          <li><a href="https://vk.com/nofatme" class="tooltipped btn-floating btn-small transparent darken-4" data-position="bottom" data-tooltip="VKontakte">
+            <i class="fab fa-vk"></i>
+          </a></li>
+        </ul> 
+         <ul class="sidenav grey lighten-2" id="mobile-menu">
+          <li><a href="About.html">О курсе</a></li>
+          <!-- <li><a href="#">Services</a></li> -->
+          <!-- <li><a href="#">Contact</a></li> -->
+        </ul>
+      </div>
+    </nav>
+    <!-- <div class="modal" id="register">
+      
+      <div class="modal-content">
+        <form id="OrderForm">
+          
+          <h2 class="red-text text-darken-4 center-align">Ты всего в шаге от нового начала</h2>
+              </div class=" center center-align  " id="card">
+              <h5 class=" text-align: center ">Оплатить картой</h5>
+            <img src="img/cards.png" class="cardImg center-align ">
+          <button id="order-button" class="modal-button waves-effect waves-light btn-small valign-wrapper center-align cardOrder "> Заказать курс </button>
+          <div id="error-message"></div>
+          </form>
+        </div>
+          </div> -->
+                
+      </div>
+    
+  </div>
+</div>
+
+    
+
+
+
+  </header>
+
+ 
+    <section class="text-card" >
+  
+       <div class="row ">
+         
+         
+            <h2 class="center-align red-text text-darken-4">Национальная Онлайн Фитнес Академия Тренеров</h2>
+            <p class="center-align">Является дочерним предприятием компании "thePTDC (Personal Trainer Development Center)", основанным в 2011 году известным тренером Джонатаном Гудманом.</p>
+            <p class="center-align">За время своей работы thePTDC помог начать и развить фитнес бизнес тысячам тренеров в 83 странах, продать миллионы копий своих обучающих материалов и курсов, </p>
+            <p class="center-align">сертифицированных фитнес ассоциациями по всему миру, такими как: </p>
+            <br>
+            <br>
+            <div>
+              <img class="responsive-img " src="certs.png">
+            </div>
+            <br>
+            <br>
+            <p class="center-align">И в 2020 году thePTDC открывает дочернее предприятие в странах СНГ, </p>
+            <p class="center-align">начиная свою деятельность с уникального мастеркласса по созданию и продвижению онлайн фитнес школы. </p>
+            <p class="center-align">Мы будем рады приветсвовать вас в своей фитнес академии!</p>
+    </div>
+ 
+   </div>
+  </section>
+
+  <br>
+
+  <section class="image-card" style="background-image: url('img/man/man09.png')">
+  
+    <div class="row ">
+     
+</div>
+
+</section>
+
+<section class="text-card" >
+  
+  <div class="row ">
+    
+    
+       <h2 class="center-align red-text text-darken-4">Мастеркласс по созданию и продвижению онлайн фитнес школы</h2>
+       <p class="center-align">Курс состоит из более 50 практических уроков с пошаговыми рабочими методиками. </p>
+       <p class="center-align">Урок содержит текстовый блок, видеоурок и практическое задание.
+        Здесь аккумулированы практические знания нескольких десятков раскрученных проектов.</p>
+       <p class="center-align">Вам больше не придется собирать информацию по крупицам, переводить иностранные статьи либо слушать пересказ от третьих лиц.</p>
+       <p class="center-align">Мастеркласс впервые в истории отечественного фитнес рынка, дает возможность получить информацию из первых рук.</p>
+       <p class="center-align">Результат от полученных навыков приведет вас к построению своей онлайн фитнес школы.</p>
+       <p class="center-align">Это не волшебная таблетка, придется работать и работать усердно, но методики Мастеркласса сделают путь к своей школе понятным и выполнимым.</p>
+</div>
+
+
+</section>
+
+<section class="text-card" >
+<div class="row center-align">
+<div id="div_countdown" class="clock">
+    <div class="col s12 l5 offset-l3 valign-wrapper center-align text-block">
+
+      <h3 id="days" class="countdown"><span class="countdown_breakdown">ДНЕЙ</span></h3> :
+      
+    <h3 id="hours" class="countdown"></h3>:
+    <h3 id="minutes" class="countdown"></h3>:
+    <h3 id="seconds" class="countdown"></h3>
+  </div>
+  
+</div>
+</div>
+
+<div class="row center-align">
+  
+  <div class="col s12 l5 offset-l3 ">
+    <a  class="order-button button  waves-effect waves-light btn-large  center-align modal-trigger">СДЕЛАТЬ
+      ПРЕДЗАКАЗ</a>
+    </div>
+    </div>
+</div>
+
+</section>
+
+  <!-- footer -->
+  <footer class="page-footer black darken-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12"> 
+          <h5></h5>
+          <p><a href="Index.html">Национальная Онлайн Фитнес Академия Тренеров</a></p>
+          <p>NOFAT Ltd, London UK. </p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+           <h5 class="white-text"></h5>
+          <ul>
+            <!-- <li><a class="grey-text text-lighten-3" href="#">Facebook</a></li> -->
+            <li><a class="grey-text text-lighten-3" href="https://vk.com/nofatme">VK</a></li>
+            <!-- <li><a class="grey-text text-lighten-3" href="#">Telegram</a></li> -->
+            <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/no_fat_me/">Instagram</a></li>
+          </ul> 
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright black darken-4">
+      <div class="container center-align">&copy; 2020 Национальная Онлайн Фитнес Академия Тренеров </div>
+    </div>
+  </footer>
+
+<!-- <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-functions.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-analytics.js"></script> -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.6.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/7.6.0/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+  apiKey: "AIzaSyD-O0Kozs90fh7driEiRC8Nljf_u_Uromg",
+  authDomain: "masterclass-ofs2020.firebaseapp.com",
+  databaseURL: "https://masterclass-ofs2020.firebaseio.com",
+  projectId: "masterclass-ofs2020",
+  storageBucket: "masterclass-ofs2020.appspot.com",
+  messagingSenderId: "248470928480",
+  appId: "1:248470928480:web:5447685b43275946da1705",
+  measurementId: "G-568DWPTCT5"
+};
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  
+  // make references to firebase objects
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  const storage = firebase.storage();
+  
+
+  
+</script>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="scripts/auth.js"></script>
+  <script src="scripts/countdown.js"></script>
+  
+  <script>
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+      // $('.materialboxed').materialbox();
+      $('.parallax').parallax();
+      $('.tabs').tabs();
+      $('.datepicker').datepicker({
+        disableWeekends: true,
+      });
+      $(document).ready(function() {
+        $('.modal').modal();
+      });
+      $('.tooltipped').tooltip();
+      $('.scrollspy').scrollSpy();
+      $(document).ready(function() {
+    $('.carousel').carousel();
+   // function for auto play carousel-slider
+   setInterval(function() {
+     $('.carousel').carousel('next')
+   }, 10000);
+   $(document).ready(function(){
+    $('.slider').slider();
+  });
+  });
+    });
+  </script>
+</body>
+</html>
